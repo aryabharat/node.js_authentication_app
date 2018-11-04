@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var querystring = require('querystring');
 
 http.createServer(function (req, res) {
     if(req.url === '/login' || req.url === '/' )
@@ -25,7 +26,12 @@ http.createServer(function (req, res) {
         data += chunk;
       });
       req.on("end", function(chunk){
-        console.log(data);
+        var formdata = querystring.parse(data);
+        //console.log(formdata.username);
+        if(formdata.username === "bharat" && formdata.pswd === "a@123")
+        {
+          console.log("sucessfull");
+        }
       });
 
     }
