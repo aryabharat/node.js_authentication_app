@@ -54,5 +54,4 @@ http.createServer(function (req, res) {
       });
     }
 
-});
-http.listen(4000);
+}).listen(4000);
